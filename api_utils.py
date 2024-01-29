@@ -99,8 +99,9 @@ def batch_query_engine(args, prompts, max_tokens, stop_token):
     resps = gpt_safe_completion(engine=args.engine, prompts=prompts, temperature=args.temperature, max_tokens=max_tokens, stop_token=stop_token, logprobs=1, num_samples=args.num_samples, echo=True)
 
     resps = resps["choices"]
-    # print("RESPS", resps, len(resps))
-    # print("P", prompts, len(prompts))
+    print("Generate translation")
+    print("RESPS", resps, len(resps))
+    print("P", prompts, len(prompts))
     resps = [resps[(i * args.num_samples):(i * args.num_samples + args.num_samples)] for i in range(len(prompts))]
     # print(resps, len(resps))
     for prompt, resp in zip(prompts, resps):
