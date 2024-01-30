@@ -92,7 +92,7 @@ def read_manual_prompt(task, prompt_id, style_template):
 def predict_framework(args):
     train_data, test_data = load_train_test_set(args)
     task_helper = TaskHelper.from_taskname(args.task, args.style_template)
-
+    
     base_manual_prompt = read_manual_prompt(args.task, args.manual_prompt_id, args.style_template)
     # Reads Prompt Here 88888
     prompts_to_complete = []    
@@ -102,7 +102,7 @@ def predict_framework(args):
         prompts_to_complete.append(
             [base_manual_prompt + task_helper.get_train_sep() + test_part]
         )
-
+    print(prompts_to_complete[0])
     task_max_tokens = task_helper.get_completion_length()
     task_stop_token = task_helper.get_train_sep()
     cache_filename = manual_query_result_filename_func(args)
