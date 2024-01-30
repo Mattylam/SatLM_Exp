@@ -94,8 +94,9 @@ def predict_framework(args):
     task_helper = TaskHelper.from_taskname(args.task, args.style_template)
 
     base_manual_prompt = read_manual_prompt(args.task, args.manual_prompt_id, args.style_template)
+    # Reads Prompt Here 88888
     prompts_to_complete = []    
-    for test_ex in test_data:
+    for test_ex in test_data: # for every context in test data? 88888
         test_part = task_helper.prompt_func(test_ex, [])
         
         prompts_to_complete.append(
