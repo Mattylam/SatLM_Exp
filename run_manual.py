@@ -54,6 +54,8 @@ def run_evaluation(args, test_data, responses, print_perplexity=False, return_ve
         print("AVG Norm Logprob: {:.4f}".format(avg_norm))
 
     eval_results = evaluator.evaluate(predictions, test_data, prompting_style, train_sep=task_helper.get_train_sep(), return_verbose=return_verbose)
+    # Evaluate here
+    print("Evaluate method here") 
     eval_results["avg_logprob"] = sums.mean(axis=1).mean(axis=0)
     eval_results["avg_normlogprob"] = norms.mean(axis=1).mean(axis=0)
     if return_verbose:
